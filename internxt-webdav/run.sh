@@ -2,8 +2,17 @@
 
 CONFIG_PATH=/data/options.json
 
-echo "Reading config from $CONFIG_PATH" >&2
-cat $CONFIG_PATH >&2
+echo "Checking if config exists..." >&2
+ls -la /data/ >&2
+echo "---" >&2
+
+if [ -f "$CONFIG_PATH" ]; then
+    echo "Config file found:" >&2
+    cat $CONFIG_PATH >&2
+else
+    echo "ERROR: Config file not found at $CONFIG_PATH" >&2
+    exit 1
+fi
 
 export INXT_USER="$(jq -r '.user' $CONFIG_PATH)"
 export INXT_PASSWORD="$(jq -r '.password' $CONFIG_PATH)"
