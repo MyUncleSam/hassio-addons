@@ -1,6 +1,6 @@
 name: "Internxt WebDAV"
 description: "Mount your Internxt Drive as a WebDAV server for easy file access"
-version: "1.0.1"
+version: "1.0.0"
 slug: "ix_webdav"
 url: "https://github.com/MyUncleSam/hassio-addons"
 startup: services

@@ -9,6 +9,4 @@ export INXT_OTPTOKEN="$(jq -r '.otptoken // empty' $CONFIG_PATH)"
 export WEBDAV_PORT="$(jq -r '.webdavport' $CONFIG_PATH)"
 export WEBDAV_PROTOCOL="$(jq -r '.webdavprotocol' $CONFIG_PATH)"
 
-printenv | sort -h
-
 exec /app/docker/entrypoint.sh
