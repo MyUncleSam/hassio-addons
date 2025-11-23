@@ -21,16 +21,8 @@ options:
 schema:
   INXT_USER: email
   INXT_PASSWORD: password
-  INXT_TWOFACTORCODE: {
-    "type": "string",
-    "secret": true,
-    "default": null
-  }
-  INXT_OTPTOKEN: {
-    "type": "string",
-    "secret": true,
-    "default": null
-  }
+  INXT_TWOFACTORCODE: password
+  INXT_OTPTOKEN: password
   WEBDAV_PORT: port
   WEBDAV_PROTOCOL: list(http|https)
 startup: application
