@@ -4,8 +4,9 @@ FROM ${BUILD_FROM}
 # Install jq, nginx, and apache2-utils for htpasswd
 RUN apk add --no-cache jq nginx apache2-utils
 
-# Copy nginx config
+# Copy nginx config and static files
 COPY nginx.conf /etc/nginx/nginx.conf
+COPY www /var/www
 
 # Copy run script
 COPY run.sh /run.sh
