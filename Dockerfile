@@ -1,14 +1,9 @@
-ARG BUILD_FROM
+ARG BUILD_FROM=internxt/webdav:latest
 FROM ${BUILD_FROM}
 
-# Install Node.js and npm for Internxt CLI
-RUN apk add --no-cache nodejs npm
-
-# Install Internxt CLI globally
-RUN npm install -g @internxt/cli
-
-# Copy root filesystem
-COPY rootfs /
-
-# Set up permissions
-RUN chmod a+x /etc/s6-overlay/s6-rc.d/internxt-webdav/run
+ENV INXT_USER=""
+ENV INXT_PASSWORD=""
+ENV INXT_TWOFACTORCODE=""
+ENV INXT_OTPTOKEN=""
+ENV WEBDAV_PORT=3005
+ENV WEBDAV_PROTOCOL=https

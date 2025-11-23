@@ -27,8 +27,6 @@ schema:
   webdav_protocol: list(http|https)
 startup: application
 boot: auto
-map:
-  - share:rw
 environment:
   INXT_USER: "{{ .email }}"
   INXT_PASSWORD: "{{ .password }}"
