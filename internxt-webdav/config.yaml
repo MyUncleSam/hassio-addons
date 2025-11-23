@@ -31,4 +31,4 @@ schema:
   webdavprotocol: list(http|https)
   webdav_user: str
   webdav_password: password
-watchdog: "http://[HOST]:[PORT:3005]/"
+watchdog: "http://[HOST]:[PORT:3005]/health"
