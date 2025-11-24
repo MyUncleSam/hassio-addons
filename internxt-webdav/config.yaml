@@ -1,6 +1,6 @@
 name: "Internxt WebDAV"
 description: "Mount your Internxt Drive as a WebDAV server for easy file access"
-version: "1.1.0"
+version: "1.0.8"
 slug: "ix_webdav"
 url: "https://github.com/ruepp-jenkins/hassio-addons"
 startup: services
@@ -9,7 +9,8 @@ arch:
   - "amd64"
   - "aarch64"
 init: false
-backup: exclude
+backup_exclude:
+  - "*"
 ports:
   3006/tcp: null
 ports_description:
