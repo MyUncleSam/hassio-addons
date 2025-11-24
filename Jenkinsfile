@@ -24,7 +24,8 @@ pipeline {
         stage('Checkout') {
             steps {
                 git branch: env.BRANCH_NAME,
-                url: env.GIT_URL
+                    credentialsId: 'ruepp-jenkins',
+                    url: env.GIT_URL
             }
         }
         stage('Check Addons') {
@@ -35,11 +36,22 @@ pipeline {
                         'internxt/webdav': 'internxt-webdav'
                     ]
 
-                    // Loop through each addon
-                    addons.each { dockerImage, addonFolder ->
-                        stage("Check: ${addonFolder}") {
-                            echo "Checking ${addonFolder} for updates (${dockerImage})..."
-                            sh "scripts/update-addon-version.sh \"${dockerImage}\" \"${addonFolder}\""
+                    // Use credentials for git operations
+                    withCredentials([usernamePassword(credentialsId: 'ruepp-jenkins', usernameVariable: 'GIT_EMAIL', passwordVariable: 'GIT_TOKEN')]) {
+                        // Configure git with credentials and identity
+                        sh '''
+                            git config --global user.email "${GIT_EMAIL}"
+                            git config --global user.name "Jenkins CI"
+                            git config --global credential.helper store
+                            echo "https://${GIT_EMAIL}:${GIT_TOKEN}@github.com" > ~/.git-credentials
+                        '''
+
+                        // Loop through each addon
+                        addons.each { dockerImage, addonFolder ->
+                            stage("Check: ${addonFolder}") {
+                                echo "Checking ${addonFolder} for updates (${dockerImage})..."
+                                sh "scripts/update-addon-version.sh \"${dockerImage}\" \"${addonFolder}\""
+                            }
                         }
                     }
                 }
