@@ -69,5 +69,5 @@ If 2FA is enabled on your Internxt account:
 
 | Issue Type | Where to Report |
 |------------|-----------------|
-| Add-on issues | [Add-on Repository](https://github.com/MyUncleSam/hassio-addons) |
+| Add-on issues | [Add-on Repository](https://github.com/ruepp-jenkins/hassio-addons) |
 | Internxt WebDAV bugs | [Internxt CLI GitHub](https://github.com/internxt/cli) |
