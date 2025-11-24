@@ -1,3 +1,3 @@
 build_from:
-  amd64: internxt/webdav:latest
-  aarch64: internxt/webdav:latest
+  amd64: internxt/webdav:v1.6.0
+  aarch64: internxt/webdav:v1.6.0

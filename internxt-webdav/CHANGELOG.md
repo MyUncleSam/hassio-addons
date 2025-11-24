@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.8 - 2025-11-24
+
+- Updated base image to internxt/webdav:v1.6.0
+
+
 # 1.0.7
 
 - avoid backing up the image which bloats the backup
